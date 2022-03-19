@@ -421,13 +421,13 @@ var SearchModal = /*#__PURE__*/function (_StateController) {
 
               case 4:
                 _utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalSearchResult.classList.remove('search-result--no-result');
-                (0,_views_skeleton__WEBPACK_IMPORTED_MODULE_11__.renderSkeletonItems)(_constants_constant__WEBPACK_IMPORTED_MODULE_8__.MAX_RENDER_VIDEOS_COUNT, _utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalVideoList); //const searchResult = await testRequest(searchKeyWord, this.nextPageToken);
-
+                (0,_views_skeleton__WEBPACK_IMPORTED_MODULE_11__.renderSkeletonItems)(_constants_constant__WEBPACK_IMPORTED_MODULE_8__.MAX_RENDER_VIDEOS_COUNT, _utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalVideoList);
                 _context2.next = 8;
-                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_13__.searchResultRequest)(searchKeyWord, this.nextPageToken);
+                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_13__.testRequest)(searchKeyWord, this.nextPageToken);
 
               case 8:
                 searchResult = _context2.sent;
+                //const searchResult = await searchResultRequest(searchKeyWord, this.nextPageToken);
                 (0,_views_skeleton__WEBPACK_IMPORTED_MODULE_11__.removeSkeleton)(_utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalVideoList);
                 videos = (0,_videoItem__WEBPACK_IMPORTED_MODULE_9__.checkSearchResult)(searchResult);
 
@@ -555,7 +555,7 @@ var StateController = /*#__PURE__*/function () {
 
                 _context.t0 = _videoItem__WEBPACK_IMPORTED_MODULE_7__.checkSearchResult;
                 _context.next = 6;
-                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_6__.getSaveVideoList)(JSON.parse(localStorage.getItem(_constants_constant__WEBPACK_IMPORTED_MODULE_5__.SAVED_VIDEO_LIST_KEY)));
+                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_6__.testSaveRequest)(JSON.parse(localStorage.getItem(_constants_constant__WEBPACK_IMPORTED_MODULE_5__.SAVED_VIDEO_LIST_KEY)));
 
               case 6:
                 _context.t1 = _context.sent;
@@ -569,7 +569,7 @@ var StateController = /*#__PURE__*/function () {
 
                 _context.t2 = _videoItem__WEBPACK_IMPORTED_MODULE_7__.checkSearchResult;
                 _context.next = 12;
-                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_6__.getSaveVideoList)(JSON.parse(localStorage.getItem(_constants_constant__WEBPACK_IMPORTED_MODULE_5__.WATCHED_VIDEO_LIST_KEY)));
+                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_6__.testSaveRequest)(JSON.parse(localStorage.getItem(_constants_constant__WEBPACK_IMPORTED_MODULE_5__.WATCHED_VIDEO_LIST_KEY)));
 
               case 12:
                 _context.t3 = _context.sent;
@@ -891,15 +891,14 @@ var testRequest = /*#__PURE__*/function () {
 
           case 5:
             response = _context3.sent;
-            console.log(response);
-            _context3.next = 9;
+            _context3.next = 8;
             return response.json();
 
-          case 9:
+          case 8:
             body = _context3.sent;
             return _context3.abrupt("return", body);
 
-          case 11:
+          case 10:
           case "end":
             return _context3.stop();
         }
