@@ -32,7 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // 비디오관련 갯수 상숭
 var MAX_SAVABLE_VIDEOS_COUNT = 100;
-var MAX_RENDER_VIDEOS_COUNT = 1; // 로컬 스토리지 키
+var MAX_RENDER_VIDEOS_COUNT = 10; // 로컬 스토리지 키
 
 var SAVED_VIDEO_LIST_KEY = 'saved-video-list-key';
 var WATCHED_VIDEO_LIST_KEY = 'watched-video-list-key'; // 서버 URL
@@ -365,10 +365,11 @@ var SearchModal = /*#__PURE__*/function (_StateController) {
 
                 (0,_views_skeleton__WEBPACK_IMPORTED_MODULE_11__.renderSkeletonItems)(_constants_constant__WEBPACK_IMPORTED_MODULE_8__.MAX_RENDER_VIDEOS_COUNT, _utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalVideoList);
                 _context.next = 6;
-                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_13__.searchResultRequest)(title, this.nextPageToken);
+                return (0,_utils_request__WEBPACK_IMPORTED_MODULE_13__.testRequest)(title, this.nextPageToken);
 
               case 6:
                 searchResult = _context.sent;
+                //const searchResult = await searchResultRequest(title, this.nextPageToken);
                 (0,_views_skeleton__WEBPACK_IMPORTED_MODULE_11__.removeSkeleton)(_utils_dom__WEBPACK_IMPORTED_MODULE_7__.$modalSearchResult);
 
                 if (!(searchResult === null)) {
